@@ -1,15 +1,12 @@
 if Meteor.isClient
-  
+
   # counter starts at 0
   Session.setDefault "counter", 0
-  Template.hello.helpers counter: ->
-    Session.get "counter"
 
-  Template.hello.events "click button": ->
-    
-    # increment the counter when button is clicked
-    Session.set "counter", Session.get("counter") + 1
-    return
+  Template.registerHelper 'g', (key) -> Session.get(key)
+  Template.registerHelper 's', (key, value) -> Session.set(key, value)
+
+  window.h = Blaze._globalHelpers
 
 if Meteor.isServer
   Meteor.startup ->
