@@ -9,5 +9,13 @@ body
 template(name="hello")
   button(onclick="h.s('counter', h.g('counter') + 1) ") Click Me
   p You've pressed the button {{ g 'counter' }} times.
-  {{> quickForm collection="Books" id="insertBookForm" type="insert"}}
-  {{>quickForm collection='Messages' id='qwe' type='insert'}}
+  {{> quickForm collection="Schemas.Books" id="insertBookForm" type="insert"}}
+  {{> quickForm collection="Schemas.Books" id="updateBookForm" type="update" doc=a}}
+
+  each e 'Schemas.Books.find()'
+    fieldset(onclick='h.s("book", Schemas.Books.findOne({_id: this.id}))' id=_id)
+      p= title
+      p= author
+      p= copies
+      p= lastCheckedOut
+      p= summary

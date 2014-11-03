@@ -1,7 +1,7 @@
-@Schema ||= {}
+@Schemas ||= {}
 
-Books = new Mongo.Collection("books")
-Books.attachSchema new SimpleSchema(
+Schemas.Books = new Mongo.Collection("books")
+Schemas.Books.attachSchema new SimpleSchema(
   title:
     type: String
     label: "Title"
