@@ -1,7 +1,5 @@
 $ = Npm.require('cheerio')
 Meteor.methods
-  scrap: (url, callback) ->
+  scrap: (url) ->
     result = Meteor.http.get(url)
-    # callback(result.content)
-    # result
-    callback($(result.content))
+    result.content
